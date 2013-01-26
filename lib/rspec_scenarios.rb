@@ -5,7 +5,7 @@ module Spec
   module Scenarios
     def load(group_name, scenario_name, instance=nil)
       group_name = group_name.to_s
-      require File.join( 'spec/scenarios' , group_name )
+      require File.join(File.expand_path('spec/scenarios'), group_name )
       klass = group_name.camelize.constantize.new
 
       klass.send(scenario_name)
